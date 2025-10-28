@@ -1,6 +1,14 @@
+-- Crear base de datos
 CREATE DATABASE TestSIE;
 GO
+
 USE TestSIE;
+GO
+
+-- Crear usuario y asignar permisos
+CREATE LOGIN testsieusr WITH PASSWORD = 'T3stS!eP@ss2025';
+CREATE USER testsieusr FOR LOGIN testsieusr;
+ALTER ROLE db_owner ADD MEMBER testsieusr;
 GO
 
 --Tabla Persona

@@ -43,8 +43,6 @@ namespace TestSIE
                     int count = (int)cmdCheck.ExecuteScalar();
                     if (count > 0)
                     {
-                        txtPersonName.Text = string.Empty;
-                        txtLastNamePerson.Text = string.Empty;
                         MessageBox.Show("Ya existe una persona con ese nombre y apellido.");
                         return;
                     }
@@ -63,13 +61,13 @@ namespace TestSIE
 
             }
 
-            txtPersonName.Text = string.Empty;
-            txtLastNamePerson.Text = string.Empty;
             CargarPersonas();
         }
 
         private void CargarPersonas()
         {
+            txtPersonName.Text = string.Empty;
+            txtLastNamePerson.Text = string.Empty;
             using (SqlConnection conn = ConexionBD.ObtenerConexion())
             {
                 conn.Open();
@@ -144,6 +142,9 @@ namespace TestSIE
                     gcCars.DataSource = dt;
                 }
             }
+            txtModel.Text = string.Empty;
+            txtBrand.Text = string.Empty;
+            txtVIN.Text = string.Empty;
         }
 
         private void label2_Click(object sender, EventArgs e)
