@@ -99,7 +99,7 @@ namespace TestSIE
 
             try
             {
-                using (GetData gd = Conn.GetConn("AtboDevDB"))
+                using (GetData gd = Conn.GetConn("MiConexion"))
                 {
                     gd.SentenciaSQL = "SELECT id, Marca, Modelo, VIN "
                         + "FROM Coche "
@@ -187,15 +187,15 @@ namespace TestSIE
         {
             try
             {
-                using (GetData gd = Conn.GetConn("AtboDevDB"))
+                using (GetData gd = Conn.GetConn("MiConexion"))
                 {
                     switch (this._objStat)
                     {
                         case Stat.New:
-                            gd.SentenciaSQL = "INSERT INTO Coche(id,Marca,Modelo,VIN) "
-                                + "VALUES(@Id,@Marca,@Modelo,@VIN) ";
+                            gd.SentenciaSQL = "INSERT INTO Coche(Marca,Modelo,VIN) "
+                                + "VALUES(@Marca,@Modelo,@VIN) ";
 
-                            gd.AddParameter(_id, "Id");
+                            //gd.AddParameter(_id, "Id");
                             gd.AddParameter(_marca, "Marca");
                             gd.AddParameter(_modelo, "Modelo");
                             gd.AddParameter(_vIN, "VIN");
@@ -206,8 +206,7 @@ namespace TestSIE
                             }
                             break;
                         case Stat.Changed:
-                            gd.SentenciaSQL = "UPDATE Coche SET id=@Id, "
-                                + "Marca=@Marca, "
+                            gd.SentenciaSQL = "UPDATE Coche SET Marca=@Marca, "
                                 + "Modelo=@Modelo, "
                                 + "VIN=@VIN "
                                 + "WHERE Id=@Id";

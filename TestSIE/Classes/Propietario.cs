@@ -88,7 +88,7 @@ namespace TestSIE
 
             try
             {
-                using (GetData gd = Conn.GetConn("AtboDevDB"))
+                using (GetData gd = Conn.GetConn("MiConexion"))
                 {
                     gd.SentenciaSQL = "SELECT id, persona_id, coche_id "
                                             + "FROM Propietario_Coche "
@@ -140,6 +140,34 @@ namespace TestSIE
 
         #region Metodos
 
+        public static bool IsCarUnassigned(int coche_id)
+        {
+            using (GetData gd = Conn.GetConn("MiConexion"))
+            {
+                gd.SentenciaSQL = "SELECT COUNT(*) FROM Propietario_Coche WHERE coche_id=@CocheId";
+                gd.AddParameter(coche_id, "CocheId");
+                if ((int.Parse(gd.GetSingleData()) > 0))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static DataTable LoadPropietarios()
+        {
+            DataTable dt = new DataTable();
+            using (GetData gd = Conn.GetConn("MiConexion"))
+            {
+                gd.SentenciaSQL = @"SELECT p.Nombre, p.Apellido, c.Marca, c.Modelo, c.VIN
+                            FROM Propietario_Coche pc
+                            INNER JOIN Persona p ON pc.persona_id = p.Id
+                            INNER JOIN Coche c ON pc.coche_id = c.Id";
+                dt = gd.GetDataTable();
+            }
+            return dt;
+        }
+
         #endregion
 
         #region IStatable Members
@@ -164,15 +192,15 @@ namespace TestSIE
         {
             try
             {
-                using (GetData gd = Conn.GetConn("AtboDevDB"))
+                using (GetData gd = Conn.GetConn("MiConexion"))
                 {
                     switch (this._objStat)
                     {
                         case Stat.New:
-                            gd.SentenciaSQL = "INSERT INTO Propietario_Coche(id,persona_id,coche_id) "
-                                + "VALUES(@Id,@PersonaId,@CocheId) ";
+                            gd.SentenciaSQL = "INSERT INTO Propietario_Coche(persona_id,coche_id) "
+                                + "VALUES(@PersonaId,@CocheId) ";
 
-                            gd.AddParameter(_id, "Id");
+                            //gd.AddParameter(_id, "Id");
                             gd.AddParameter(_personaId, "PersonaId");
                             gd.AddParameter(_cocheId, "CocheId");
 
@@ -182,8 +210,7 @@ namespace TestSIE
                             }
                             break;
                         case Stat.Changed:
-                            gd.SentenciaSQL = "UPDATE Propietario_Coche SET id=@Id, "
-                                + "persona_id=@PersonaId, "
+                            gd.SentenciaSQL = "UPDATE Propietario_Coche SET persona_id=@PersonaId, "
                                 + "coche_id=@CocheId "
                                 + "WHERE Id=@Id";
                             gd.AddParameter(_id, "Id");
