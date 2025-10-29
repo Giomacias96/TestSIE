@@ -257,7 +257,7 @@ namespace TestSIE
                     prop = new Propietario(idProp);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
