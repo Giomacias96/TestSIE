@@ -85,9 +85,7 @@
     <Compile Include="Classes\Persona.cs" />
     <Compile Include="Classes\Propietario.cs" />
     <Compile Include="Classes\ConnectionDB\Stat.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
