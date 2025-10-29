@@ -101,9 +101,9 @@ namespace TestSIE
                     //txtLastName.Text = gvPersons.GetRowCellValue(e.RowHandle, "Apellido").ToString().Trim();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -138,14 +138,12 @@ namespace TestSIE
             }
             catch (Exception ex)
             {
-
                 if (ex.Message.Contains("UQ_Persona"))
                     XtraMessageBox.Show("Ya existe una persona con ese nombre y apellido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                     XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
         }
 
         private void btnNewCar_Click(object sender, EventArgs e)
@@ -243,14 +241,43 @@ namespace TestSIE
                     XtraMessageBox.Show("Este coche ya tiene propietario.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void gvOwners_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            try
+            {
+                if (gvOwners.GetRowCellValue(e.RowHandle, "Id").ToString().Trim() != string.Empty)
+                {
+                    int idProp = int.Parse(gvOwners.GetRowCellValue(e.RowHandle, "Id").ToString().Trim());
+                    prop = new Propietario(idProp);
+                }
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteCarOwner_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                prop.DeleteNow();
+                if (prop.ObjStat == Stat.Saved)
+                {
+                    XtraMessageBox.Show("Se ha eliminado correctamente el coche del propietario.", "Eliminar Asignacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                LoadOwners();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

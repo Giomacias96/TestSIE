@@ -129,8 +129,8 @@ namespace TestSIE
             return new Propietario
             {
                 _id = record["id"] != DBNull.Value ? int.Parse(record["Id"].ToString()) : 0,
-                _personaId = record["persona_id"] != DBNull.Value ? int.Parse(record["PersonaId"].ToString()) : 0,
-                _cocheId = record["coche_id"] != DBNull.Value ? int.Parse(record["CocheId"].ToString()) : 0,
+                _personaId = record["persona_id"] != DBNull.Value ? int.Parse(record["persona_id"].ToString()) : 0,
+                _cocheId = record["coche_id"] != DBNull.Value ? int.Parse(record["coche_id"].ToString()) : 0,
 
                 _objStat = Stat.Loaded
             };
@@ -159,7 +159,7 @@ namespace TestSIE
             DataTable dt = new DataTable();
             using (GetData gd = Conn.GetConn("MiConexion"))
             {
-                gd.SentenciaSQL = @"SELECT p.Nombre, p.Apellido, c.Marca, c.Modelo, c.VIN
+                gd.SentenciaSQL = @"SELECT pc.Id, p.Nombre, p.Apellido, c.Marca, c.Modelo, c.VIN
                             FROM Propietario_Coche pc
                             INNER JOIN Persona p ON pc.persona_id = p.Id
                             INNER JOIN Coche c ON pc.coche_id = c.Id";

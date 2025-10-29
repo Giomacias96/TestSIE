@@ -90,6 +90,8 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDeleteCarOwner = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCars)).BeginInit();
@@ -134,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -156,6 +159,7 @@
             this.layoutControl1.Controls.Add(this.cmbPersons);
             this.layoutControl1.Controls.Add(this.cmbCars);
             this.layoutControl1.Controls.Add(this.btnAssignCar);
+            this.layoutControl1.Controls.Add(this.btnDeleteCarOwner);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -232,7 +236,7 @@
             this.gcOwners.Location = new System.Drawing.Point(12, 359);
             this.gcOwners.MainView = this.gvOwners;
             this.gcOwners.Name = "gcOwners";
-            this.gcOwners.Size = new System.Drawing.Size(792, 200);
+            this.gcOwners.Size = new System.Drawing.Size(792, 207);
             this.gcOwners.TabIndex = 18;
             this.gcOwners.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvOwners});
@@ -496,7 +500,8 @@
             this.layoutControlItem14,
             this.emptySpaceItem8,
             this.layoutControlItem11,
-            this.layoutControlItem12});
+            this.layoutControlItem12,
+            this.layoutControlItem15});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(816, 605);
             this.layoutControlGroup1.TextVisible = false;
@@ -534,9 +539,9 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 519);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 558);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(796, 32);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(398, 27);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -656,7 +661,7 @@
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.Location = new System.Drawing.Point(382, 100);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(10, 149);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(10, 145);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -673,22 +678,22 @@
             this.layoutControlItem4.Control = this.gcOwners;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 347);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(796, 204);
+            this.layoutControlItem4.Size = new System.Drawing.Size(796, 211);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 249);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 245);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(387, 20);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(387, 25);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 320);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 321);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
             this.emptySpaceItem7.Size = new System.Drawing.Size(387, 26);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
@@ -718,9 +723,9 @@
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(387, 249);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(387, 245);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(409, 20);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(409, 25);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem11
@@ -771,6 +776,27 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
+            // 
+            // btnDeleteCarOwner
+            // 
+            this.btnDeleteCarOwner.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCarOwner.Appearance.Options.UseFont = true;
+            this.btnDeleteCarOwner.Location = new System.Drawing.Point(410, 570);
+            this.btnDeleteCarOwner.Name = "btnDeleteCarOwner";
+            this.btnDeleteCarOwner.Size = new System.Drawing.Size(394, 23);
+            this.btnDeleteCarOwner.StyleController = this.layoutControl1;
+            this.btnDeleteCarOwner.TabIndex = 23;
+            this.btnDeleteCarOwner.Text = "Eliminar Asignacion";
+            this.btnDeleteCarOwner.Click += new System.EventHandler(this.btnDeleteCarOwner_Click);
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.btnDeleteCarOwner;
+            this.layoutControlItem15.Location = new System.Drawing.Point(398, 558);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(398, 27);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextVisible = false;
             // 
             // AdqCars
             // 
@@ -824,6 +850,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -891,5 +918,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteCarOwner;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
     }
 }
