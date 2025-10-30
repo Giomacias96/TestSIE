@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TestSIE")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("%dCompany%")]
+[assembly: AssemblyCompany("GioMacias")]
 [assembly: AssemblyProduct("TestSIE")]
-[assembly: AssemblyCopyright("Copyright © %dCompany% 2025")]
+[assembly: AssemblyCopyright("Copyright © GioMacias 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +28,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("25.10.29.0")]
+[assembly: AssemblyFileVersion("25.10.29.0")]

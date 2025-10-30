@@ -8,3 +8,4 @@ packages/
 publish
 *.log
 *.tm
+app.config
